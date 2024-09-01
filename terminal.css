@@ -1,0 +1,16 @@
+.plain {
+    display: none;
+}
+
+body {
+    background-color: black;
+}
+
+.terminal {
+    display: contents;
+    color: green;
+    font-family: monospace;
+    height: 100vh;
+    padding: 10px;
+}
+
