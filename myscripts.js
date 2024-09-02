@@ -31,7 +31,11 @@ input.addEventListener('keypress', function(event) {
 function handleCommand(command) {
     switch (command) {
         case 'help':
-            console.log("help");
+            const helpOutput = document.createElement('label');
+            helpOutput.innerText = "ls   cd";
+            const helpBr = document.createElement('br');
+            document.getElementById('terminal').insertAdjacentElement('beforeend', helpBr);
+            document.getElementById('terminal').insertAdjacentElement('beforeend', helpOutput);
             break;
         case 'ls':
             const output = document.createElement('label');
@@ -52,6 +56,8 @@ function handleCommand(command) {
         case 'cd gpt':
             document.location.href = "gpt.html";
             break;
+        case 'cd':
+            break;
     }
     console.log('Command complete');
     
@@ -59,7 +65,7 @@ function handleCommand(command) {
     document.getElementsByClassName('terminalInput')[length - 1].disabled = true;
 
     const user = document.createElement('label');
-    user.innerText = 'guest@myles-portfolio:~$ ';
+    user.innerText = 'guest@myles-website:~$ ';
     const terminalInput = document.createElement('input');
     terminalInput.type = 'text';
     terminalInput.className = 'terminalInput';
@@ -74,6 +80,7 @@ function handleCommand(command) {
     const br = document.createElement('br');
     document.getElementById('terminal').insertAdjacentElement('beforeend', br);
     document.getElementById('terminal').insertAdjacentElement('beforeend', user);
+    terminalInput.focus();
 
 }
 
