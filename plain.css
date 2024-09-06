@@ -1,3 +1,7 @@
 .terminal {
     display: none
 }
+
+nav * {
+    display: inline;
+}

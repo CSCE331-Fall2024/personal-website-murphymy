@@ -16,7 +16,9 @@ button.addEventListener('click', function() {
 window.addEventListener('load', function() {
     const currTheme = this.localStorage.getItem('theme');
     var theme = document.getElementsByTagName('link')[0];
-    theme.setAttribute('href', currTheme);
+    if (currTheme) {
+        theme.setAttribute('href', currTheme);
+    }
 });
 
 const length = document.getElementsByClassName('terminalInput').length;
@@ -83,4 +85,3 @@ function handleCommand(command) {
     terminalInput.focus();
 
 }
-

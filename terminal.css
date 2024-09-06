@@ -14,3 +14,8 @@ body {
     padding: 10px;
 }
 
+.terminalInput {
+    background-color: black;
+    color: white;
+}
+
