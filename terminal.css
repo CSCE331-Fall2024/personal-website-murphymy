@@ -8,7 +8,7 @@ body {
 
 .terminal {
     display: contents;
-    color: green;
+    color: #32CD32;
     font-family: monospace;
     height: 100vh;
     padding: 10px;
@@ -17,5 +17,13 @@ body {
 .terminalInput {
     background-color: black;
     color: white;
+    margin: 5px;
 }
 
+.terminalInput:focus {
+    outline: none;
+}
+
+.output {
+    color: white;
+}

@@ -4,7 +4,7 @@
     <link rel="stylesheet" href="plain.css" id="stylesheet">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Myles' Website</title>
+    <title>About</title>
 </head>
 <body>
     <button id="ToggleButton">Terminal Mode</button>
@@ -30,7 +30,7 @@
                     <div class="meImg"><img src="MylesRobot.jpg" alt="Me with Robot" width="536" height="622.86" id="meImg"></div>
                     <div class="AboutText">
                         <h1 id="howdy">Howdy!</h2>
-                        <p>
+                        <p id="aboutParagraph">
                             &emsp;My name is Myles Murphy, and I'm a Junior at <a class="aboutLinks" href="https://www.tamu.edu/index.html" target="_blank" rel="noopener noreferrer">Texas A&M University</a> majoring in Computer Science and minoring in Statistics and Music. When I first enrolled at A&M, I had not been exposed to any computer science topics or coding, so I planned on pursuing an engineering major. After taking an introductory Python course, I realized how much I enjoyed the logic and way of thinking that goes into programming, so I decided to become a Computer Science major. 
                             <br>
                             &emsp;I'm currently continuing my summer internship with Hexagon Asset Lifecycle Intelligence as a part-time software development intern, where I'm assisting with the migration of legacy software from C++ to C#. During the summer, I worked with the Asset Model Development team to develop several PDF data collection scripts for the PAS Integrity software suite. This was the first time I worked in a professional environment and with a team as a software developer. Approaching such a large codebase was a scary experience at first, but it was also exciting to contribute to a meaningful project. I highly recommend checking out all the software solutions offered by Hexagon ALI, they can be found <a class="aboutLinks" href="https://hexagon.com/products/product-groups/asset-lifecycle-intelligence" target="_blank" rel="noopener noreferrer">here</a>.
@@ -46,6 +46,7 @@
 
         <div id="terminalSite" class="terminal">
             <div id="terminal">
+                <p class="output">Howdy! Welcome to Terminal Mode. For a list of commands, type 'help'. <br> To go back to the old style, click the button above.</p>
                 <label>guest@myles-website:~$
                 <input type="text" class="terminalInput">
                 </label>

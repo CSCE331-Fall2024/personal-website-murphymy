@@ -48,7 +48,8 @@ li a {
 }
 
 .navBar {
-    padding-left: 78em;
+    position: absolute;
+    right: 50px;
 }
 
 .navBar * {

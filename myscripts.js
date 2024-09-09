@@ -27,24 +27,31 @@ if (input) {
     input.addEventListener('keypress', function(event) {
         if (event.key == "Enter") {
             const command = input.value;
-            handleCommand(command);
+            if (document.title == "About") {
+                aboutCommand(command);
+            }
+            else if (document.title == 'Projects') {
+                projectsCommand(command);
+            }
         }
     });
 }
 
-function handleCommand(command) {
+function aboutCommand(command) {
     switch (command) {
         case 'help':
             const helpOutput = document.createElement('label');
-            helpOutput.innerText = "ls   cd";
+            helpOutput.innerText = "ls: Lists names of files and directories.\n cd <directory_name>: Change directory to specified directory.\n cat <file_name>: Open specified file.";
+            helpOutput.classList.add('output');
             const helpBr = document.createElement('br');
             document.getElementById('terminal').insertAdjacentElement('beforeend', helpBr);
             document.getElementById('terminal').insertAdjacentElement('beforeend', helpOutput);
             break;
         case 'ls':
             const output = document.createElement('label');
+            output.classList.add('output');
             const br = document.createElement('br');
-            output.innerText = "projects   experience   service   gpt"
+            output.innerText = "projects   experience   service   gpt   about.me"
             document.getElementById('terminal').insertAdjacentElement('beforeend', br);
             document.getElementById('terminal').insertAdjacentElement('beforeend', output);
             break;
@@ -60,16 +67,40 @@ function handleCommand(command) {
         case 'cd gpt':
             document.location.href = "gpt.html";
             break;
-        case 'cd':
+        case 'cat about.me':
+            const catOutput = document.getElementById('aboutParagraph').cloneNode(true);
+            catOutput.classList.add('output');
+            const catbr = document.createElement('br');
+            document.getElementById('terminal').insertAdjacentElement('beforeend', catbr);
+            document.getElementById('terminal').insertAdjacentElement('beforeend', catOutput);
             break;
+        case 'cd':
+        case 'cd .':
+        case 'cd ..':
+        case 'cat':
+            break;
+        default:
+            const defaultOutput = document.createElement('label');
+            defaultOutput.classList.add('output');
+            defaultOutput.innerText = "command not found"
+            const defbr = document.createElement('br');
+            document.getElementById('terminal').insertAdjacentElement('beforeend', defbr);
+            document.getElementById('terminal').insertAdjacentElement('beforeend', defaultOutput);
     }
     console.log('Command complete');
-    
+    newLine('guest@myles-website:~$ ');
+}
+
+function projectsCommand(command) {
+    console.log("projects");
+}
+
+function newLine(currDirectory) {
     const length = document.getElementsByClassName('terminalInput').length;
     document.getElementsByClassName('terminalInput')[length - 1].disabled = true;
 
     const user = document.createElement('label');
-    user.innerText = 'guest@myles-website:~$ ';
+    user.innerText = currDirectory;
     const terminalInput = document.createElement('input');
     terminalInput.type = 'text';
     terminalInput.className = 'terminalInput';
@@ -77,7 +108,9 @@ function handleCommand(command) {
     terminalInput.addEventListener('keypress', function(event) {
         if (event.key == "Enter") {
             const command = terminalInput.value;
-            handleCommand(command);
+            if (document.title == 'About') {
+                aboutCommand(command);
+            }
         }
     });
 
@@ -85,5 +118,4 @@ function handleCommand(command) {
     document.getElementById('terminal').insertAdjacentElement('beforeend', br);
     document.getElementById('terminal').insertAdjacentElement('beforeend', user);
     terminalInput.focus();
-
 }
