@@ -232,3 +232,23 @@ li a {
 #interestHeader {
     padding-left: 250px;
 }
+
+/* services styling */
+
+#services {
+    margin-top: 250px;
+}
+
+#service1 {
+    margin-left: 28em;
+    margin-right: 5em;
+}
+
+#service1heading {
+    position: absolute;
+    padding-left: 3.5em;
+}
+
+#service2back {
+    background-color: #708238;
+}
