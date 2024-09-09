@@ -7,16 +7,99 @@
     <title>Myles' Portfolio</title>
 </head>
 <body>
-    <nav>
-        <h1><a href="index.html" class="navLink">Myles Murphy</a></h1>
-        <ul class="navBar">
-            <li><a href="portfolio.html" class="navLink">Projects</a></li>
-            <li><a href="resume.html" class="navLink">Experience</a></li>
-            <li><a href="service.html" class="navLink">Volunteer</a></li>
-            <li><a href="gpt.html" class="navLink">GPT</a></li>
-        </ul>
-    </nav>
+    <button id="ToggleButton">Terminal Mode</button>
+        <div id="plainSite" class="plain"> 
+                <header>
+                    <nav>
+                        <ul class="attribution">
+                            <li><a class="personalLinks" href="https://github.com/murphymy04" target="_blank" rel="noopener noreferrer"><img src="GitHub-Mark-ea2971cee799.png" width="32" height="32"></a></li>
+                            <li><a class="personalLinks" href="https://www.linkedin.com/in/murphymy/" target="_blank" rel="noopener noreferrer"><img src="linkedin-logo_578229-227.avif" width="32" height="32"></a></li>
+                        </ul>
+                        
+                        <ul class="navBar">
+                            <li><a href="index.html" class="navLink">About</a></li>
+                            <li><a href="portfolio.html" class="navLink">Projects</a></li>
+                            <li><a href="resume.html" class="navLink">Experience</a></li>
+                            <li><a href="service.html" class="navLink">Volunteer</a></li>
+                            <li><a href="gpt.html" class="navLink">GPT</a></li>
+                        </ul>
+                    </nav>
+                </header>
 
+                <div id="projects">
+                    <div id="projectHeader"><h1>Projects</h1></div>
+                    <div id="project1" class="projectCards">
+                        <div class="projectCardsInner">
+                            <div class="projectCardsfront">
+                                <h1 id="project1heading">RISC-V CPU</h1>
+                                <img src="LogisimProject.png" width="400" height="500">
+                            </div>
+                            <div id="project1back" class="projectCardsback">
+                                <p class="projecttext">
+                                    Worked in a 3 person team to develop a fully-functioning CPU in Logisim using logic gates.
+                                    <br>
+                                    <br>
+                                    Designed CPU to support 9 different instructions from the RISC-V instruction set architecture
+                                    <br>
+                                    <br>
+                                    <br>
+                                    Technologies Used: Logisim
+                                </p>
+                            </div>
+                        </div>
+                    </div>
 
+                    <div id="project2" class="projectCards">
+                        <div class="projectCardsInner">
+                            <div class="projectCardsfront">
+                                <img src="Screenshot 2024-09-08 185005.png" width="400" height="500">
+                            </div>
+                            <div id="project2back" class="projectCardsback">
+                                <p class="projecttext">Pantry Pal is a full stack application that allows users to type ingredient names into a search bar, and the app will return recipes that contain those ingredients.
+                                    <br>
+                                    <br>
+                                    Users can create an account to save those recipes and view them at any time using the "My Recipes" tab.
+                                    <br>
+                                    <br>
+                                    I created this app because I don't know what to do with what I buy at the grocery store.
+                                    <br>
+                                    <br>
+                                    <br>
+                                    Technologies Used: Python, Flask, PostgreSQL, SQLAlchemy, Jinja
+                                </p>
+                                <ul class="projectLinks">
+                                    <li><a href="https://github.com/murphymy04/Pantry-Pal" target="_blank" rel="noopener noreferrer"><img src="link-hyperlink-icon.webp" width="32" height="32"></a></li>
+                                    <li><a href="https://github.com/murphymy04/Pantry-Pal" target="_blank" rel="noopener noreferrer"><img src="GitHub-Mark-ea2971cee799.png" width="32" height="32"></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="project3" class="projectCards">
+                        <div class="projectCardsInner">
+                            <div class="projectCardsfront">
+                                <img src="Wordle.png" width="400" height="500">
+                            </div>
+                            <div id="project3back" class="projectCardsback">
+                                <p class="projecttext">
+                                    Developed a <a id="wordleLink" href="https://www.nytimes.com/games/wordle/index.html" target="_blank" rel="noopener noreferrer">Wordle</a> clone using Java and JavaFX for the GUI
+                                    <br>
+                                    <br>
+                                    Included save and load buttons to save the current game and load that save anytime using File IO
+                                    <br>
+                                    <br>
+                                    <br>
+                                    Technologies Used: Java, JavaFX
+                                </p>
+                                <ul class="projectLinks">
+                                    <li><a href="https://github.com/murphymy04/Wordle-Project" target="_blank" rel="noopener noreferrer"><img src="GitHub-Mark-ea2971cee799.png" width="32" height="32"></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+
+        <script src="myscripts.js"></script>
 </body>
 </html>
