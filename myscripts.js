@@ -14,7 +14,7 @@ button.addEventListener('click', function() {
 });
 
 window.addEventListener('load', function() {
-    const currTheme = this.localStorage.getItem('theme');
+    const currTheme = window.localStorage.getItem('theme');
     var theme = document.getElementsByTagName('link')[0];
     if (currTheme) {
         theme.setAttribute('href', currTheme);
@@ -42,14 +42,14 @@ function handleCommand(command) {
         case 'ls':
             const output = document.createElement('label');
             const br = document.createElement('br');
-            output.innerText = "portfolio   qualifications   service   gpt"
+            output.innerText = "projects   experience   service   gpt"
             document.getElementById('terminal').insertAdjacentElement('beforeend', br);
             document.getElementById('terminal').insertAdjacentElement('beforeend', output);
             break;
-        case 'cd portfolio':
+        case 'cd projects':
             document.location.href = "portfolio.html";
             break;
-        case 'cd resume':
+        case 'cd experience':
             document.location.href = "resume.html";
             break;
         case 'cd service':

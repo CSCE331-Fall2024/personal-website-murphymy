@@ -55,7 +55,7 @@ li a {
     padding-left: 1em;
 }
 
-/* About page */
+/* About page styling */
 
 #content {
     padding-top: 6em;
@@ -183,4 +183,23 @@ li a {
 
 #wordleLink {
     color: black;
+}
+
+/* experience Styling */
+
+#resume {
+    position: absolute;
+    right: 3em;
+    top: 12em;
+}
+
+#resumeHeader {
+    position: absolute;
+    right: 11em;
+    top: 5em;
+    color: #F0F0F0; 
+}
+
+#resumeLink {
+    color: #F0F0F0;
 }

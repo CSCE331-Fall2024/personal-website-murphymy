@@ -2,18 +2,36 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="plain.css" id="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Experience</title>
 </head>
 <body>
-    <nav>
-        <h1><a href="index.html" class="navLink">Myles Murphy</a></h1>
-        <ul class="navBar">
-            <li><a href="portfolio.html" class="navLink">Projects</a></li>
-            <li><a href="resume.html" class="navLink">Experience</a></li>
-            <li><a href="service.html" class="navLink">Volunteer</a></li>
-            <li><a href="gpt.html" class="navLink">GPT</a></li>
-        </ul>
-    </nav>
+    <button id="ToggleButton">Terminal Mode</button>
+        <div id="plainSite" class="plain"> 
+                <header>
+                    <nav>
+                        <ul class="attribution">
+                            <li><a class="personalLinks" href="https://github.com/murphymy04" target="_blank" rel="noopener noreferrer"><img src="GitHub-Mark-ea2971cee799.png" width="32" height="32"></a></li>
+                            <li><a class="personalLinks" href="https://www.linkedin.com/in/murphymy/" target="_blank" rel="noopener noreferrer"><img src="linkedin-logo_578229-227.avif" width="32" height="32"></a></li>
+                        </ul>
+                        
+                        <ul class="navBar">
+                            <li><a href="index.html" class="navLink">About</a></li>
+                            <li><a href="portfolio.html" class="navLink">Projects</a></li>
+                            <li><a href="resume.html" class="navLink">Experience</a></li>
+                            <li><a href="service.html" class="navLink">Service</a></li>
+                            <li><a href="gpt.html" class="navLink">GPT</a></li>
+                        </ul>
+                    </nav>
+                </header>
+
+                <div id="experience">
+                    <h2 id="resumeHeader"><a id="resumeLink" href="Myles_Resume_Sept__2024.pdf" download="MylesResume">Resume</a></h2>
+                    <iframe id="resume" src="https://drive.google.com/file/d/1hzmIdYM4XWlYSvVhYKbUNOUfk54TvAMM/preview" width="500" height="600"></iframe>
+                </div>
+        </div>
+
+        <script src="myscripts.js"></script>
 </body>
 </html>
