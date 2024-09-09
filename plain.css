@@ -189,17 +189,46 @@ li a {
 
 #resume {
     position: absolute;
-    right: 3em;
+    right: 15em;
     top: 12em;
 }
 
 #resumeHeader {
     position: absolute;
-    right: 11em;
+    right: 19em;
     top: 5em;
     color: #F0F0F0; 
 }
 
 #resumeLink {
     color: #F0F0F0;
+}
+
+#skills {
+    color: #F0F0F0;
+    border: 1px solid #F0F0F0;
+    width: 600px;
+    margin-top: 150px;
+    margin-left: 180px;
+}
+
+.skillsText {
+    display: inline-block;
+    padding-right: 10px;
+}
+
+#skillsHeader {
+    padding-left: 250px;
+}
+
+#interest {
+    color: #F0F0F0;
+    border: 1px solid #F0F0F0;
+    width: 700px;
+    margin-top: 50px;
+    margin-left: 150px;
+}
+
+#interestHeader {
+    padding-left: 250px;
 }

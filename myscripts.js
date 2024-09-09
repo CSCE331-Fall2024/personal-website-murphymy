@@ -23,12 +23,14 @@ window.addEventListener('load', function() {
 
 const length = document.getElementsByClassName('terminalInput').length;
 const input = document.getElementsByClassName('terminalInput')[length - 1];
-input.addEventListener('keypress', function(event) {
-    if (event.key == "Enter") {
-        const command = input.value;
-        handleCommand(command);
-    }
-});
+if (input) {
+    input.addEventListener('keypress', function(event) {
+        if (event.key == "Enter") {
+            const command = input.value;
+            handleCommand(command);
+        }
+    });
+}
 
 function handleCommand(command) {
     switch (command) {
