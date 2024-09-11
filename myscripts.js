@@ -7,9 +7,15 @@ button.addEventListener('click', function() {
     if (theme.getAttribute('href') == 'plain.css') { 
         theme.setAttribute('href', 'terminal.css'); 
         localStorage.setItem('theme', 'terminal.css');
+        if (document.title == 'Experience') {
+            document.location.href = 'resumeTerminal.html';
+        }
     } else { 
         localStorage.setItem('theme', 'plain.css');
         theme.setAttribute('href', 'plain.css'); 
+        if (document.title == 'Experience') {
+            document.location.href = 'resume.html';
+        }
     } 
 });
 
@@ -32,6 +38,9 @@ if (input) {
             }
             else if (document.title == 'Projects') {
                 projectsCommand(command);
+            }
+            else if (document.title == 'Experience') {
+                experienceCommand(command);
             }
         }
     });
@@ -59,7 +68,7 @@ function aboutCommand(command) {
             document.location.href = "portfolio.html";
             break;
         case 'cd experience':
-            document.location.href = "resume.html";
+            document.location.href = "resumeTerminal.html";
             break;
         case 'cd service':
             document.location.href = "service.html";
@@ -105,11 +114,11 @@ function projectsCommand(command) {
             const output = document.createElement('label');
             output.classList.add('output');
             const br = document.createElement('br');
-            output.innerText = "wordle.pro   pantry_pal.pro   cpu.pro"
+            output.innerText = "wordle.txt   pantry_pal.txt   cpu.txt"
             document.getElementById('terminal').insertAdjacentElement('beforeend', br);
             document.getElementById('terminal').insertAdjacentElement('beforeend', output);
             break;
-        case 'cat wordle.pro':
+        case 'cat wordle.txt':
             const wordleOutput = document.getElementById('project3text').cloneNode(true);
             const wordleGithub = document.createElement('a');
             wordleGithub.href = "https://github.com/murphymy04/Wordle-Project";
@@ -122,7 +131,7 @@ function projectsCommand(command) {
             document.getElementById('terminal').insertAdjacentElement('beforeend', wordleOutput);
             document.getElementById('terminal').insertAdjacentElement('beforeend', wordleGithub);
             break;
-        case 'cat pantry_pal.pro':
+        case 'cat pantry_pal.txt':
             const pantryOutput = document.getElementById('project2text').cloneNode(true);
             pantryOutput.classList.add('output');
             const pantryGithub = document.createElement('a');
@@ -139,10 +148,10 @@ function projectsCommand(command) {
             document.getElementById('terminal').insertAdjacentElement('beforeend', pantrybr);
             document.getElementById('terminal').insertAdjacentElement('beforeend', pantryOutput);
             document.getElementById('terminal').insertAdjacentElement('beforeend', pantryGithub);
-            document.getElementById('terminal').insertAdjacentElement('beforeend', pantrybr);
+            document.getElementById('terminal').insertAdjacentElement('beforeend', pantrybr.cloneNode(true));
             document.getElementById('terminal').insertAdjacentElement('beforeend', pantryLink);
             break;
-        case 'cat cpu.pro':
+        case 'cat cpu.txt':
             const cpuOutput = document.getElementById('project1text').cloneNode(true);
             cpuOutput.classList.add('output');
             const cpubr = document.createElement('br');
@@ -169,6 +178,73 @@ function projectsCommand(command) {
     newLine('guest@myles-website:~/projects$ ');
 }
 
+function experienceCommand(command) {
+    switch (command) {
+        case 'help':
+            const helpOutput = document.createElement('label');
+            helpOutput.innerText = "ls: Lists names of files and directories.\n cd <directory_name>: Change directory to specified directory.\n cat <file_name>: Open specified file.";
+            helpOutput.classList.add('output');
+            const helpBr = document.createElement('br');
+            document.getElementById('terminal').insertAdjacentElement('beforeend', helpBr);
+            document.getElementById('terminal').insertAdjacentElement('beforeend', helpOutput);
+            break;
+        case 'ls':
+            const output = document.createElement('label');
+            output.classList.add('output');
+            const br = document.createElement('br');
+            output.innerText = "skills.txt   interest.txt   resume.pdf";
+            document.getElementById('terminal').insertAdjacentElement('beforeend', br);
+            document.getElementById('terminal').insertAdjacentElement('beforeend', output);
+            break;
+        case 'cat skills.txt':
+            const skillsOutput = document.getElementById('skills');
+            skillsOutput.classList.add('output');
+            const skillsbr = document.createElement('br');
+            document.getElementById('terminal').insertAdjacentElement('beforeend', skillsbr);
+            document.getElementById('terminal').insertAdjacentElement('beforeend', skillsOutput);
+            break;
+        case 'cat interest.txt':
+            const interestOutput = document.getElementById('interest');
+            interestOutput.classList.add('output');
+            const interestbr = document.createElement('br');
+            document.getElementById('terminal').insertAdjacentElement('beforeend', interestbr);
+            document.getElementById('terminal').insertAdjacentElement('beforeend', interestOutput);
+            break;
+        case 'cat resume.pdf':
+            const resumeOutput = document.getElementById('resumeHeader');
+            const resumeViewer = document.createElement('a');
+            resumeViewer.href = "Myles_Resume_Sept__2024.pdf";
+            resumeViewer.target = "_blank";
+            resumeViewer.rel = "noopener noreferrer";
+            resumeViewer.classList.add('output');
+            resumeViewer.innerText = 'View Resume';
+            resumeOutput.classList.add('output');
+            const resumebr = document.createElement('br');
+            document.getElementById('terminal').insertAdjacentElement('beforeend', resumebr);
+            document.getElementById('terminal').insertAdjacentElement('beforeend', resumeViewer);
+            document.getElementById('terminal').insertAdjacentElement('beforeend', resumebr.cloneNode(true));
+            document.getElementById('terminal').insertAdjacentElement('beforeend', resumeOutput);
+            break;
+        case 'cd ..':
+            document.location.href = "index.html";
+            break;
+        case 'cd':
+        case 'cd .':
+        case 'cat':
+            break;
+        default:
+            const defaultOutput = document.createElement('label');
+            defaultOutput.classList.add('output');
+            defaultOutput.innerText = "command not found"
+            const defbr = document.createElement('br');
+            document.getElementById('terminal').insertAdjacentElement('beforeend', defbr);
+            document.getElementById('terminal').insertAdjacentElement('beforeend', defaultOutput);
+    }
+
+    console.log('Experience command complete');
+    newLine('guest@myles-website:~/experience$ ');
+}
+
 function newLine(currDirectory) {
     const length = document.getElementsByClassName('terminalInput').length;
     document.getElementsByClassName('terminalInput')[length - 1].disabled = true;
@@ -187,6 +263,9 @@ function newLine(currDirectory) {
             }
             else if (document.title == 'Projects') {
                 projectsCommand(command);
+            }
+            else if (document.title == 'Experience') {
+                experienceCommand(command);
             }
         }
     });
