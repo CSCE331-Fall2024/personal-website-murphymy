@@ -87,12 +87,86 @@ function aboutCommand(command) {
             document.getElementById('terminal').insertAdjacentElement('beforeend', defbr);
             document.getElementById('terminal').insertAdjacentElement('beforeend', defaultOutput);
     }
-    console.log('Command complete');
-    newLine('guest@myles-website:~$ ');
+    console.log('About command complete');
+    newLine('guest@myles-website:~/projects$ ');
 }
 
 function projectsCommand(command) {
-    console.log("projects");
+    switch (command) {
+        case 'help':
+            const helpOutput = document.createElement('label');
+            helpOutput.innerText = "ls: Lists names of files and directories.\n cd <directory_name>: Change directory to specified directory.\n cat <file_name>: Open specified file.";
+            helpOutput.classList.add('output');
+            const helpBr = document.createElement('br');
+            document.getElementById('terminal').insertAdjacentElement('beforeend', helpBr);
+            document.getElementById('terminal').insertAdjacentElement('beforeend', helpOutput);
+            break;
+        case 'ls':
+            const output = document.createElement('label');
+            output.classList.add('output');
+            const br = document.createElement('br');
+            output.innerText = "wordle.pro   pantry_pal.pro   cpu.pro"
+            document.getElementById('terminal').insertAdjacentElement('beforeend', br);
+            document.getElementById('terminal').insertAdjacentElement('beforeend', output);
+            break;
+        case 'cat wordle.pro':
+            const wordleOutput = document.getElementById('project3text').cloneNode(true);
+            const wordleGithub = document.createElement('a');
+            wordleGithub.href = "https://github.com/murphymy04/Wordle-Project";
+            wordleGithub.target = "_blank";
+            wordleGithub.rel = "noopener noreferrer";
+            wordleGithub.innerText = "GitHub";
+            wordleOutput.classList.add('output');
+            const wordlebr = document.createElement('br');
+            document.getElementById('terminal').insertAdjacentElement('beforeend', wordlebr);
+            document.getElementById('terminal').insertAdjacentElement('beforeend', wordleOutput);
+            document.getElementById('terminal').insertAdjacentElement('beforeend', wordleGithub);
+            break;
+        case 'cat pantry_pal.pro':
+            const pantryOutput = document.getElementById('project2text').cloneNode(true);
+            pantryOutput.classList.add('output');
+            const pantryGithub = document.createElement('a');
+            pantryGithub.href = "https://github.com/murphymy04/Pantry-Pal";
+            pantryGithub.innerText = "GitHub";
+            pantryGithub.target = "_blank";
+            pantryGithub.rel = "noopener noreferrer";
+            const pantryLink = document.createElement('a');
+            pantryLink.innerText = "Deployed Link";
+            pantryLink.href = "https://pantry-pal-mhvj.onrender.com";
+            pantryLink.target = "_blank";
+            pantryLink.rel = "noopener noreferrer";
+            const pantrybr = document.createElement('br');
+            document.getElementById('terminal').insertAdjacentElement('beforeend', pantrybr);
+            document.getElementById('terminal').insertAdjacentElement('beforeend', pantryOutput);
+            document.getElementById('terminal').insertAdjacentElement('beforeend', pantryGithub);
+            document.getElementById('terminal').insertAdjacentElement('beforeend', pantrybr);
+            document.getElementById('terminal').insertAdjacentElement('beforeend', pantryLink);
+            break;
+        case 'cat cpu.pro':
+            const cpuOutput = document.getElementById('project1text').cloneNode(true);
+            cpuOutput.classList.add('output');
+            const cpubr = document.createElement('br');
+            document.getElementById('terminal').insertAdjacentElement('beforeend', cpubr);
+            document.getElementById('terminal').insertAdjacentElement('beforeend', cpuOutput);
+            break;
+        case 'cd ..':
+            document.location.href = "index.html";
+            break;
+        case 'cd':
+        case 'cd .':
+        case 'cat':
+            break;
+        default:
+            const defaultOutput = document.createElement('label');
+            defaultOutput.classList.add('output');
+            defaultOutput.innerText = "command not found"
+            const defbr = document.createElement('br');
+            document.getElementById('terminal').insertAdjacentElement('beforeend', defbr);
+            document.getElementById('terminal').insertAdjacentElement('beforeend', defaultOutput);
+    }
+
+    console.log('Projects command complete');
+    newLine('guest@myles-website:~/projects$ ');
 }
 
 function newLine(currDirectory) {
@@ -110,6 +184,9 @@ function newLine(currDirectory) {
             const command = terminalInput.value;
             if (document.title == 'About') {
                 aboutCommand(command);
+            }
+            else if (document.title == 'Projects') {
+                projectsCommand(command);
             }
         }
     });
