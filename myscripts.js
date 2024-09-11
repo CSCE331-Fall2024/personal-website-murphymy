@@ -68,7 +68,7 @@ function aboutCommand(command) {
             const output = document.createElement('label');
             output.classList.add('output');
             const br = document.createElement('br');
-            output.innerText = "projects   experience   service   gpt   about.me"
+            output.innerText = "projects   experience   service   contact   about.me"
             document.getElementById('terminal').insertAdjacentElement('beforeend', br);
             document.getElementById('terminal').insertAdjacentElement('beforeend', output);
             break;
@@ -81,7 +81,7 @@ function aboutCommand(command) {
         case 'cd service':
             document.location.href = "service.html";
             break;
-        case 'cd gpt':
+        case 'cd contact':
             document.location.href = "gpt.html";
             break;
         case 'cat about.me':
@@ -205,14 +205,14 @@ function experienceCommand(command) {
             document.getElementById('terminal').insertAdjacentElement('beforeend', output);
             break;
         case 'cat skills.txt':
-            const skillsOutput = document.getElementById('skills');
+            const skillsOutput = document.getElementById('skills').cloneNode(true);
             skillsOutput.classList.add('output');
             const skillsbr = document.createElement('br');
             document.getElementById('terminal').insertAdjacentElement('beforeend', skillsbr);
             document.getElementById('terminal').insertAdjacentElement('beforeend', skillsOutput);
             break;
         case 'cat interest.txt':
-            const interestOutput = document.getElementById('interest');
+            const interestOutput = document.getElementById('interest').cloneNode(true);
             interestOutput.classList.add('output');
             const interestbr = document.createElement('br');
             document.getElementById('terminal').insertAdjacentElement('beforeend', interestbr);
