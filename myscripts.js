@@ -7,23 +7,28 @@ button.addEventListener('click', function() {
     if (theme.getAttribute('href') == 'plain.css') { 
         theme.setAttribute('href', 'terminal.css'); 
         localStorage.setItem('theme', 'terminal.css');
-        if (document.title == 'Experience') {
-            document.location.href = 'resumeTerminal.html';
-        }
+        localStorage.setItem('button', 'Leave Terminal Mode');
+        const styleButton = document.getElementById('ToggleButton');
+        styleButton.innerText = "Leave Terminal Mode";
     } else { 
         localStorage.setItem('theme', 'plain.css');
+        localStorage.setItem('button', 'Terminal Mode');
         theme.setAttribute('href', 'plain.css'); 
-        if (document.title == 'Experience') {
-            document.location.href = 'resume.html';
-        }
+        const styleButton = document.getElementById('ToggleButton');
+        styleButton.innerText = "Terminal Mode";
     } 
 });
 
 window.addEventListener('load', function() {
     const currTheme = window.localStorage.getItem('theme');
+    const styleButton = document.getElementById('ToggleButton');
     var theme = document.getElementsByTagName('link')[0];
+    const style = window.localStorage.getItem('button');
     if (currTheme) {
         theme.setAttribute('href', currTheme);
+    }
+    if (style) {
+        styleButton.innerText = style;
     }
 });
 
@@ -41,6 +46,9 @@ if (input) {
             }
             else if (document.title == 'Experience') {
                 experienceCommand(command);
+            }
+            else if (document.title == 'Service') {
+                serviceCommand(command);
             }
         }
     });
@@ -68,7 +76,7 @@ function aboutCommand(command) {
             document.location.href = "portfolio.html";
             break;
         case 'cd experience':
-            document.location.href = "resumeTerminal.html";
+            document.location.href = "resume.html";
             break;
         case 'cd service':
             document.location.href = "service.html";
@@ -211,7 +219,10 @@ function experienceCommand(command) {
             document.getElementById('terminal').insertAdjacentElement('beforeend', interestOutput);
             break;
         case 'cat resume.pdf':
-            const resumeOutput = document.getElementById('resumeHeader');
+            const resumeOutput = document.createElement('a');
+            resumeOutput.href = "Myles_Resume_Sept__2024.pdf";
+            resumeOutput.download = "MylesResume";
+            resumeOutput.innerText = "Resume Download Link";
             const resumeViewer = document.createElement('a');
             resumeViewer.href = "Myles_Resume_Sept__2024.pdf";
             resumeViewer.target = "_blank";
@@ -245,6 +256,70 @@ function experienceCommand(command) {
     newLine('guest@myles-website:~/experience$ ');
 }
 
+function serviceCommand(command) {
+    switch (command) {
+        case 'help':
+            const helpOutput = document.createElement('label');
+            helpOutput.innerText = "ls: Lists names of files and directories.\n cd <directory_name>: Change directory to specified directory.\n cat <file_name>: Open specified file.";
+            helpOutput.classList.add('output');
+            const helpBr = document.createElement('br');
+            document.getElementById('terminal').insertAdjacentElement('beforeend', helpBr);
+            document.getElementById('terminal').insertAdjacentElement('beforeend', helpOutput);
+            break;
+        case 'ls':
+            const output = document.createElement('label');
+            output.classList.add('output');
+            const br = document.createElement('br');
+            output.innerText = "polls.txt   big_event.txt";
+            document.getElementById('terminal').insertAdjacentElement('beforeend', br);
+            document.getElementById('terminal').insertAdjacentElement('beforeend', output);
+            break;
+        case 'cat polls.txt':
+            const pollsOutput = document.getElementById('service1text').cloneNode(true);
+            pollsOutput.classList.add('output');
+            const pollsbr = document.createElement('br');
+            const pollsLink = document.createElement('a');
+            pollsLink.href = "https://www.eac.gov/help-america-vote";
+            pollsLink.innerText = "Link";
+            pollsLink.target = "_blank";
+            pollsLink.rel = "noopener noreferrer";
+            document.getElementById('terminal').insertAdjacentElement('beforeend', pollsbr);
+            document.getElementById('terminal').insertAdjacentElement('beforeend', pollsOutput);
+            document.getElementById('terminal').insertAdjacentElement('beforeend', pollsLink);
+            break;
+        case 'cat big_event.txt':
+            const bigOutput = document.getElementById('service2text').cloneNode(true);
+            bigOutput.classList.add('output');
+            const bigLink = document.createElement('a');
+            bigLink.href = "https://www.tamug.edu/stuact/traditions/Big%20Event.html";
+            bigLink.innerText = "Link";
+            bigLink.target = "_blank";
+            bigLink.rel = "noopener noreferrer";
+            const bigbr = document.createElement('br');
+            document.getElementById('terminal').insertAdjacentElement('beforeend', bigbr);
+            document.getElementById('terminal').insertAdjacentElement('beforeend', bigOutput);
+            document.getElementById('terminal').insertAdjacentElement('beforeend', bigLink);
+            break;
+        case 'cd ..':
+            document.location.href = "index.html";
+            break;
+        case 'cd':
+        case 'cd .':
+        case 'cat':
+            break;
+        default:
+            const defaultOutput = document.createElement('label');
+            defaultOutput.classList.add('output');
+            defaultOutput.innerText = "command not found"
+            const defbr = document.createElement('br');
+            document.getElementById('terminal').insertAdjacentElement('beforeend', defbr);
+            document.getElementById('terminal').insertAdjacentElement('beforeend', defaultOutput); 
+    }
+
+    console.log('Service command complete');
+    newLine('guest@myles-website:~/service$ ');
+}
+
 function newLine(currDirectory) {
     const length = document.getElementsByClassName('terminalInput').length;
     document.getElementsByClassName('terminalInput')[length - 1].disabled = true;
@@ -266,6 +341,9 @@ function newLine(currDirectory) {
             }
             else if (document.title == 'Experience') {
                 experienceCommand(command);
+            }
+            else if (document.title == 'Service') {
+                serviceCommand(command);
             }
         }
     });
