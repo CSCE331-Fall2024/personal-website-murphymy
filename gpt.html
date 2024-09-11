@@ -2,29 +2,72 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="plain.css" id="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Contact Me</title>
+    <link rel="stylesheet" href="gpt.css">
 </head>
 <body>
-    <button id="ToggleButton">Terminal Mode</button>
-        <div id="plainSite" class="plain"> 
-                <header>
-                    <nav>
-                        <ul class="attribution">
-                            <li><a class="personalLinks" href="https://github.com/murphymy04" target="_blank" rel="noopener noreferrer"><img src="GitHub-Mark-ea2971cee799.png" width="32" height="32"></a></li>
-                            <li><a class="personalLinks" href="https://www.linkedin.com/in/murphymy/" target="_blank" rel="noopener noreferrer"><img src="linkedin-logo_578229-227.avif" width="32" height="32"></a></li>
-                        </ul>
-                        
-                        <ul class="navBar">
-                            <li><a href="index.html" class="navLink">About</a></li>
-                            <li><a href="portfolio.html" class="navLink">Projects</a></li>
-                            <li><a href="resume.html" class="navLink">Experience</a></li>
-                            <li><a href="service.html" class="navLink">Service</a></li>
-                            <li><a href="gpt.html" class="navLink">GPT</a></li>
-                        </ul>
-                    </nav>
-                </header>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">About</a></li>
+                <li><a href="portfolio.html">Projects</a></li>
+                <li><a href="resume.html">Experience</a></li>
+                <li><a href="service.html">Service</a></li>
+                <li><a href="gpt.html" class="active">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="contact-section">
+        <h1>Contact Me</h1>
+        <p>If you'd like to get in touch, you can reach me at:</p>
+        <div class="contact-info">
+            <p><strong>Email:</strong> <a href="mailto:mylesfmurphy@gmail.com">mylesfmurphy@gmail.com</a></p>
         </div>
+        
+        <h2>Or send me a message directly:</h2>
+        <form id="contactForm" onsubmit="sendEmail(); return false;">
+            <label for="name">Your Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Your Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="message">Your Message:</label>
+            <textarea id="message" name="message" required></textarea>
+
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
+
+    <!-- Summary Section -->
+    <section class="summary-section">
+        <h2>This page was created using AI with the following prompts</h2>
+        <textarea readonly>
+            1. I have a website that looks like this image and I want to make a contact page. I want this page to host my email.
+            2. Could you also add a form that users can send out that will send an email to me? If possible, do this without any external libraries.
+            3. Lastly, could you add a text box summarizing all the prompts I gave you at the very bottom of the web page?
+        </textarea>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Myles Murphy</p>
+    </footer>
+
+    <script>
+        function sendEmail() {
+            // Get form values
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+            
+            // Create mailto link
+            const mailtoLink = `mailto:youremail@example.com?subject=Message from ${encodeURIComponent(name)} (${encodeURIComponent(email)})&body=${encodeURIComponent(message)}`;
+            
+            // Open the default email client with the mailto link
+            window.location.href = mailtoLink;
+        }
+    </script>
 </body>
 </html>
