@@ -105,7 +105,7 @@ function aboutCommand(command) {
             document.getElementById('terminal').insertAdjacentElement('beforeend', defaultOutput);
     }
     console.log('About command complete');
-    newLine('guest@myles-website:~/projects$ ');
+    newLine('guest@myles-website:~$ ');
 }
 
 function projectsCommand(command) {
